@@ -60,7 +60,7 @@ function SignIn(){
     const navigate = useNavigate();
 
     async function signIn(){
-        var res = await fetch(`http://192.168.7.220:3000/checkAccount?mail=${mail.toLowerCase().replace(' ','')}&pass=${pass.replace(" ",'')}`)
+        var res = await fetch(`http://192.168.14.54:3000/checkAccount?mail=${mail.toLowerCase().replace(' ','')}&pass=${pass.replace(" ",'')}`)
         
         res = await res.text();
 
@@ -88,11 +88,12 @@ function SignUp(){
     const [pass, setPass] = useState();
     const [passRepeat, setPassRepeat] = useState();
     const [errorMsg,setErrorMsg] = useState('');
+    const navigate = useNavigate();
     
     async function signUp(){
         if(passRepeat != pass){setErrorMsg('הסיסמאות לא שוות'); return}
 
-        var res = await fetch('http://192.168.7.220:3000/createAccount',{
+        var res = await fetch('http://192.168.14.54:3000/createAccount',{
             method:'POST',
             body:JSON.stringify({mail:mail.toLowerCase().replace(' ',''),pass:pass.replace(" ",'')}),
             headers:{'Content-Type': 'application/json'}

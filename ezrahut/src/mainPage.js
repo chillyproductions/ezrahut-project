@@ -23,7 +23,7 @@ export default function MainPage(){
             setMail(mail);
             setPass(pass);
 
-            var res = await fetch(`http://192.168.7.220:3000/getAccountData?mail=${mail}&pass=${pass}`);
+            var res = await fetch(`http://192.168.14.54:3000/getAccountData?mail=${mail}&pass=${pass}`);
             if(res.status != 400){
                 res = await res.json();
                 setData(res.history);
@@ -84,17 +84,22 @@ function Gamble({item: data}){
 
 function GraphTab({data}){
     const [formatedData, setFormatedData] = useState(formatData());
+    const [moneyValue, setMoneyValue] = useState(getMoneyValue());
 
     useEffect(()=>{
         setFormatedData(formatData());
     },[data])
+
+    useEffect(()=>{
+        setMoneyValue(getMoneyValue());
+    },[formatedData])
 
     function formatData(){
         var formatedData = {
             labels: [],
             datasets: [
               {
-                data: [1,2],
+                data: [0],
               }
             ],
         };
@@ -108,6 +113,31 @@ function GraphTab({data}){
 
         return formatedData;
     }   
+
+    function getMoneyValue(money){
+        const cost = [0,20,50,100,200,300,400,600,800,1000,2000,3000,4000,5000,6000];
+        const value = [
+            "5 חמצוצים",
+            "מנוי חודשי לספוטיפי",
+            "פיצה של פיצה האט",
+            "רובה מסג'",
+            "מנוי חודשי לחדר כושר",
+            "משקפי מעצבים של קרולינה למקה ברלין",
+            "רמקול של jbl",
+            "פטיפון עם מספר תקליתים",
+            "16 ליטר של חלב",
+            "30 קלטות dvd של שרק",
+            "אופני הרים",
+            "איפון 13",
+            "אייפד פרו",
+            "10000 חמצוצים",
+            "סטייק מצופה זהב"
+        ]
+    
+        for(var i = 0; cost[i] < Math.abs(formatedData.total); i++){}
+        return value[i-1];
+    }
+    
 
     const chartConfig = {
         backgroundGradientFrom: "gray",
@@ -126,12 +156,12 @@ function GraphTab({data}){
       };
 
     return(
-        <Text>
+        <View style={{alignItems:'center'}}>
             <View>
-                <Text>הפסד סך הכל:{formatedData.total}</Text>
+                <Text style={styles.totalLossCaption}>{formatedData.total > 0? "ניצחון סך הכל":"הפסד סך הכל"}:{Math.abs(formatedData.total)}</Text>
             </View>
             <View>
-                <Text>גרף הספדים להורך זמן:</Text>
+                <Text style={styles.graphCaption}>גרף הפסדים להורך זמן:</Text>
             </View>
             <LineChart
                 data={formatedData}
@@ -139,7 +169,13 @@ function GraphTab({data}){
                 height={220}
                 chartConfig={chartConfig}
             />
-        </Text>
+            {formatedData.total < 0?
+            <View>
+                <Text style={styles.moneyValue}>היית יכול לקנות {moneyValue} עם הכסף שהפסדת</Text>
+            </View>
+            :null
+            }
+        </View>
     )
 }
 
@@ -148,7 +184,7 @@ function InputNewGamle({cancel,mail,pass,showAddData,addData}){
     const [profit, setProfit] = useState();
 
     async function createAccountData(){
-        var res = await fetch('http://192.168.7.220:3000/createAccountData',{
+        var res = await fetch('http://192.168.14.54:3000/createAccountData',{
             method:"POST",
             body:JSON.stringify({mail,pass,cost:parseInt(cost),profit:parseInt(profit)}),
             headers:{'Content-Type':'application/json'}

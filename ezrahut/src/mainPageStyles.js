@@ -99,6 +99,17 @@ export const styles = StyleSheet.create({
     selectedNav:{
         height:70,
         backgroundColor:'#7A73E7'
+    },
+    totalLossCaption:{
+        marginBottom:30,
+        fontSize:30,
+    },
+    graphCaption:{
+    },
+    moneyValue:{
+        marginTop:30,
+        fontSize:20,
+        textAlign:'center'
     }
 
 })

@@ -23,11 +23,11 @@ app.post('/createAccount', (req,res)=>{
     var userData = fs.readFileSync('./data/data.json');
     userData = JSON.parse(userData);
     if(userData[req.body.mail]) {res.send("קיים כבר משתמש עם מייל זה"); return}
-
+    
     userData[req.body.mail] = {pass:req.body.pass, history:[]};
     
     fs.writeFileSync('./data/data.json',JSON.stringify(userData,null,2));
-
+    
     res.send("ok");
 })
 

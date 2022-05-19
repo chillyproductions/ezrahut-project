@@ -61,6 +61,68 @@
       {
         "cost": 100,
         "profit": 0
+      },
+      {
+        "cost": 100,
+        "profit": 5
+      },
+      {
+        "cost": 50,
+        "profit": 10
+      },
+      {
+        "cost": 500,
+        "profit": 10
+      },
+      {
+        "cost": 1000,
+        "profit": 500
+      },
+      {
+        "cost": 1000,
+        "profit": 0
+      },
+      {
+        "cost": 2000,
+        "profit": 0
+      }
+    ]
+  },
+  "russo": {
+    "pass": "124",
+    "history": [
+      {
+        "cost": 500,
+        "profit": 1000
+      },
+      {
+        "cost": 1000,
+        "profit": 500
+      }
+    ]
+  },
+  "bing": {
+    "pass": "123",
+    "history": []
+  },
+  "bong": {
+    "pass": "123",
+    "history": []
+  },
+  "bb": {
+    "pass": "12",
+    "history": []
+  },
+  "aaa": {
+    "pass": "11",
+    "history": [
+      {
+        "cost": 20,
+        "profit": 100
+      },
+      {
+        "cost": 10000,
+        "profit": 8000
       }
     ]
   }
