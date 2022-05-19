@@ -1,0 +1,67 @@
+{
+  "nati": {
+    "pass": "12",
+    "history": [
+      {
+        "cost": 30,
+        "profit": 10
+      },
+      {
+        "cost": 20,
+        "profit": 5
+      },
+      {
+        "cost": 20,
+        "profit": 5
+      },
+      {
+        "cost": 50,
+        "profit": 200
+      },
+      {
+        "cost": 50,
+        "profit": 1
+      },
+      {
+        "cost": 50,
+        "profit": 10
+      },
+      {
+        "cost": 30,
+        "profit": 100
+      },
+      {
+        "cost": 100,
+        "profit": 20
+      },
+      {
+        "cost": 15,
+        "profit": 30
+      },
+      {
+        "cost": 5,
+        "profit": 100
+      },
+      {
+        "cost": 200,
+        "profit": 5
+      },
+      {
+        "cost": 100,
+        "profit": 5
+      },
+      {
+        "cost": 10,
+        "profit": 5
+      },
+      {
+        "cost": 5,
+        "profit": 5
+      },
+      {
+        "cost": 100,
+        "profit": 0
+      }
+    ]
+  }
+}
