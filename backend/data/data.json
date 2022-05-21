@@ -98,6 +98,22 @@
       {
         "cost": 1000,
         "profit": 500
+      },
+      {
+        "cost": 500,
+        "profit": 10
+      },
+      {
+        "cost": 20,
+        "profit": 5
+      },
+      {
+        "cost": 200,
+        "profit": 50
+      },
+      {
+        "cost": 300,
+        "profit": 0
       }
     ]
   },
